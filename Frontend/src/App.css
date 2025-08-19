@@ -1,0 +1,40 @@
+/* Custom styles for the SOS app */
+.sos-button {
+	transition: all 0.3s ease;
+}
+
+.sos-button:hover {
+	transform: scale(1.05);
+}
+
+.sos-button:active {
+	transform: scale(0.95);
+}
+
+.map-container {
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Blink animation for urgent rows */
+@keyframes blink-bg {
+	0%, 100% { background-color: rgba(255, 243, 205, 1); }
+	50% { background-color: rgba(255, 243, 205, 0); }
+}
+
+.blink,
+.blink td {
+	animation: blink-bg 0.7s linear infinite;
+}
+
+/* Pulse animation for Admin button when there are active cases */
+@keyframes pulse-btn {
+	0% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+	70% { box-shadow: 0 0 0 10px rgba(234, 179, 8, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+}
+
+.blink-btn {
+	animation: pulse-btn 1s ease-out infinite;
+}
