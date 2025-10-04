@@ -3,7 +3,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const http = require("http");
 const socketIo = require("socket.io");
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+
+// Ensure required environment variables are present
+if (!process.env.MONGO_URI) {
+  console.error("Missing MONGO_URI in Backend/.env. Please set your MongoDB Atlas connection string.");
+  process.exit(1);
+}
 
 const sosRoutes = require("./routes/sos");
 
@@ -25,9 +32,12 @@ io.on("connection", (socket) => {
 });
 
 mongoose
-  .connect(process.env.MONGO_URI || "mongodb://localhost:27017/campus-safety")
+  .connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 10000 })
   .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);
+  });
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
