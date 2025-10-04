@@ -32,8 +32,4 @@ Safety on campus is a growing concern for students worldwide. Traditional system
 * Security team gets **real-time incident dashboards** for faster response.
 * Admins can analyze safety reports and trends to improve campus infrastructure.
 
-## 🏆 Hackathon Impact
 
-CampusX was built as a **hackathon project** to tackle real-world safety concerns in academic spaces. Its modular design makes it easy to integrate with existing campus systems and scale for universities, schools, and corporate campuses.
-
-👉 Together, let’s make campuses **smarter and safer** with CampusX!
